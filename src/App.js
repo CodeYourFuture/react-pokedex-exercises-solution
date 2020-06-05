@@ -9,7 +9,7 @@ function App() {
   );
 }
 
-function Logo() {
+const Logo = () => {
   return (
     <header>
       <h1>Welcome to the Pokedex</h1>
@@ -19,10 +19,10 @@ function Logo() {
       />
     </header>
   );
-}
+};
 
-function BestPokemon() {
+const BestPokemon = () => {
   return <p>My favourite Pokemon is Squirtle</p>;
-}
+};
 
 export default App;
