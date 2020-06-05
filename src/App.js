@@ -8,9 +8,13 @@ function App() {
   const abilities = ["Anticipation", "Adaptability", "Run-Away"];
   const date = new Date().toLocaleDateString();
 
+  function logWhenClicked() {
+    console.log("Clicked!");
+  }
+
   return (
     <div>
-      <Logo appName="Pokedex" />
+      <Logo appName="Pokedex" handleClick={logWhenClicked} />
       <BestPokemon abilities={abilities} />
       <CaughtPokemon date={date} />
     </div>
