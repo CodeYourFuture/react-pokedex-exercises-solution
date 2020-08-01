@@ -2,9 +2,20 @@ import React, { useState } from "react";
 
 function CaughtPokemon(props) {
   const [caught, setCaught] = useState([]);
+  const [pokemonNameInput, setPokemonNameInput] = useState("");
 
   function catchPokemon() {
-    setCaught(caught.concat(getRandomPokemon()));
+    if (pokemonNameInput === "") {
+      return
+    }
+
+    setCaught(caught.concat(pokemonNameInput));
+    setPokemonNameInput("");
+  }
+
+  function handleInputChange(event) {
+    console.log(event.target.value);
+    setPokemonNameInput(event.target.value);
   }
 
   return (
@@ -15,6 +26,11 @@ function CaughtPokemon(props) {
           return <li key={index}>{name}</li>;
         })}
       </ul>
+      <input
+        type="text"
+        value={pokemonNameInput}
+        onChange={handleInputChange}
+      />
       <button onClick={catchPokemon}>Catch Pokemon</button>
     </p>
   );
